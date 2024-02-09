@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        
+        #button{
+            padding:20px 30px;
+            background-color: #2f7fff;
+            background-image: linear-gradient(319deg, #3673dd 0%, #ff6425 37%, #725ce0 100%);
+            border: none;
+            color: white;
+            font-size: larger;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Hello <%=firstname%> 🎉</h2>
+    <p">Forgot Your Password? don't Worry here is link to reset enjoy:<%=url%></p>
+    <br>
+    <a href="<%=url%>" id="button">ResetPassword</a>
+</body>
+</html>
