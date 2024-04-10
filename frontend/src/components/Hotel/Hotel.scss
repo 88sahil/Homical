@@ -1,0 +1,194 @@
+.HostMain{
+    padding: 0 10px;
+}
+body{
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.LogoDiv{
+    display: flex;
+    align-items: center;
+    img{
+        width: 100px;
+        height: 100px;
+    }
+    a{
+        color:white;
+        font-weight: bold;
+        font-size: 20px;
+        text-decoration: none;
+    }
+}
+.HostForm{
+    h2{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: white;
+    }
+    form{
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        input{
+            width: 500px;
+            padding: 20px 10px;
+            border: none;
+            font-weight: bolder;
+            font-size: 13px;
+            background-color: #9cc6f0;
+
+            &::placeholder{
+                color: rgb(87, 87, 87);
+                font-weight: bolder;
+                text-transform: uppercase;
+                font-size: 13px;
+                border: none
+            }
+        }
+        select{
+            width: 500px;
+            padding: 10px 10px;
+            background-color: #9cc6f0;
+            font-weight: bold;
+        }
+        button{
+            width: 300px;
+            padding: 10px 20px;
+        }
+        .rte{
+            width: 100%;
+            background-color: #9cc6f0;
+        }
+        .form_div_1{
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 50%;
+        }
+        .form_div_2{
+            width: 50%;
+            gap: 8px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            #Photo{
+                width: 500px;
+                height: 300px;
+            }
+        }
+    }
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 60px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    z-index: 15;
+    height: 60px;
+    display: grid;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    grid-area: 1/1; 
+    background: #3217ff;
+    clip-path: polygon(0 0,100% 0,100% 100%,75% 25%,0 0,0 100%,100% 100%,25% 75%,0 0);
+    animation: l20 1.5s infinite linear;
+  }
+  .loader:after {
+    clip-path: polygon(0 0,76% 24%,100% 100%,24% 76%);
+    --s:0;
+  }
+  @keyframes l20 {
+    0%      {transform: perspective(100px) rotate3d(1,var(--s,1),0,0)      } 
+    25%     {transform: perspective(100px) rotate3d(1,var(--s,1),0,-90deg) }
+    25.01%  {transform: perspective(100px) rotate3d(1,var(--s,1),0,-90deg) } 
+    40%,60% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-180deg)} 
+    75%     {transform: perspective(100px) rotate3d(1,var(--s,1),0,-270deg)}
+    75.01%  {transform: perspective(100px) rotate3d(1,var(--s,1),0,-270deg)} 
+    90%,100%{transform: perspective(100px) rotate3d(1,var(--s,1),0,-360deg)}
+  }
+
+
+
+
+  .HotelCard{
+    position: relative;
+    padding: 6px 10px;
+    background-color: rgb(23, 23, 49);
+    border-radius: 10px;
+    width: 400px;
+    height: 380px;
+    img{
+        width: 400px;
+        height: 250px;
+        border-radius: 10px;
+    }
+    div{
+        a{
+            color: white;
+        }
+    }
+    .rating{
+        position: absolute;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background: rgba(113, 113, 113, 0.409);
+        // backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        top: 20px;
+        right: 30px;
+        font-weight: bolder;
+    }
+    .like{
+        position: absolute;
+        top: 20px;
+        height: 20px;
+        border-radius: 5px;
+        left: 30px;
+        padding: 5px;
+        background: rgba(113, 113, 113, 0.409);
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        gap: 2px;
+    }
+  }
+
+  .Hero2{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .photos{
+    scrollbar-width: none; /* Firefox 64 */
+    -ms-overflow-style: none; /* Internet Explorer 11 */
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar { /** WebKit */
+      display: none;
+    }
+  }
+
+  .ame{
+    span{
+        gap: 5px;
+    }
+  }
+  #hidden{
+    width: 0;
+  }
+  .allrev{
+    width: 500px;
+  }
+//   @keyframes visible{
+//     0%{
+//         width: 0;
+//     }
+//     100%{
+//         width: 500px;
+//     }
+//   }

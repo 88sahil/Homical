@@ -20,7 +20,8 @@ $mycolor:blue;
 
 .message{
     position: fixed;
-    top: 0;
+    top: 5px;
+    left: 50%;
     background-color: ghostwhite;
     width: 300px;
     &::before{

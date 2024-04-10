@@ -1,0 +1,220 @@
+.Home{
+    .header{
+        display: flex;
+        justify-content: space-between;
+        .logodiv{
+            display: flex;
+            align-items: center;
+            border-right: 2px solid rgb(179, 171, 171);
+            padding: 0 30px;
+            border-radius: 15px;
+            img{
+                width: 65px;
+                height: 65px;
+                border-radius: 0;
+            }
+            a{
+                font-size: 22px;
+                color: rgb(230, 230, 230);
+                font-weight: bolder;
+            }
+        }
+        .middlediv{
+            ul{
+                display: flex;
+                gap: 15px;
+                li{
+                    list-style: none;
+                    a{
+                        color: white;
+                        font-weight: 100;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        
+   }
+   .secdiv{
+    display: flex;
+    gap: 12px;
+    align-self: center;
+   }
+   .thirdiv{
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-left: 1px solid gray;
+    border-radius: 12px;
+    img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    .loginbtn{
+        width: 100px;
+        height: 40px;
+        color:white;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    }
+   }
+}
+
+
+.filter{
+    padding: 10px;
+    .f-div1{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-top:2px solid gray;
+        .search-div{
+           .form{
+            display: flex;
+            height: 80px;
+            align-items: center;
+            input{
+                width: 300px;
+                padding: 20px 10px;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+            }
+           }
+            
+        }
+        .filter-div{
+            display: flex;
+            align-items: center;
+            a{
+                color: white;
+                font-weight: bold;
+            }
+            div{
+                display: flex;
+                gap: 5px;
+
+                .rec-btn{
+                    height: 50px;
+                    background-color: rgb(16, 37, 69);
+                    color: white;
+                    border: none;
+                    border-radius: 25px;
+                    padding: 0 8px;
+
+                    &:hover{
+                        background-color: blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.filter-2{
+    display: flex;
+    align-items: center;
+    button{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        background-color: rgb(1, 27, 66);
+        border: none;
+        outline: none;
+        width: 100px;
+        font-size: 15px;
+        border-radius: 10px;
+        text-transform: capitalize;
+        padding: 10px 10px;
+    }
+}
+.Hotels-Hero{
+    display: flex;
+    padding: 10px;
+    .border-botm{
+        width: 80%;
+        background-color: ghostwhite;
+        height: 2px;
+    }
+    .Hero_nav{
+        width: 80px;
+        .allHeros{
+           
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            .allnavs{
+                display: flex;
+                justify-content: center;
+                color: white;
+                font-size: 25px;
+                
+            }
+            #likes{
+                position: relative;
+                z-index: 2;
+                #likec{
+                    position: absolute;
+                    z-index: 1;
+                    top: -5px;
+                    right: 20px;
+                    margin-bottom: 10px;
+                    color: wheat;
+                    font-size: small;
+                }
+            }
+            .active{
+                color: blue;
+            }
+        }
+        
+    }
+}
+
+
+.logout{
+    display: flex;
+    justify-content: center;
+    color: red;
+    margin-top: 35px;
+}
+.UO{
+    position: absolute;
+    right: 5px;
+    top: 70px;
+}
+.UserOve{
+    background-color: rgb(209, 209, 209);
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 5px;
+    img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border:1px solid red;
+    }
+    a{
+        font-weight: bolder;
+    }
+    button{
+        width: 300px;
+        background-color:transparent;
+        padding: 10px;
+        font-weight:bold ;
+        border: 2px solid blue;
+        border-radius: 5px;
+    }
+}

@@ -75,7 +75,7 @@ const protected=checkasync(async(req,res,next)=>{
         let changeAt = parseInt(this.passwordChangeAt.getTime()/1000,10)
         return next(new AppError('no user found',404))
     }
-    const isChange =user.ispasswordChange(decoded.iap)
+    const isChange =user.ispasswordChange(decoded.iat)
     if(isChange){
         return next(new AppError('password changed! please login again',401))
     }
@@ -119,7 +119,7 @@ const forgotpassword=checkasync(async(req,res,next)=>{
     }
     let resettoken = user.changepasswordtoken()
     await user.save({validateBeforeSave:false})
-    let url = `${req.protocol}:/localhost:3000/resetpassword/${resettoken}`
+    let url = `${req.protocol}:/localhost:5173/resetpassword/${resettoken}`
     await new Email(user,url).sendPasswordReset()
     res.status(200).json({
         status:'success',
@@ -167,6 +167,7 @@ const uploadProfile = checkasync(async(req,res,next)=>{
     fs.unlinkSync(req.file.path)
     res.status(200).json({
         status:'success',
+        user:user,
         message:'photo upload successfully'
     })
 })
@@ -200,8 +201,11 @@ const logout = checkasync((req,res,next)=>{
 })
 
 const updateMe = checkasync(async(req,res,next)=>{
-    const obj = filterObj(req.body,'name','username','email')
+    const obj = filterObj(req.body,'name','username','email','role')
     const user = await User.findByIdAndUpdate(req.user._id,obj,{new:true})
     createSendCookie(user,res,200)
 })
-module.exports = {createUser,LoginUser,protected,verifyUser,updatepassword,forgotpassword,resetpassword,uploadProfile,deleteuser,logout,updateMe}
+const searchResult = checkasync(async(req,res,next)=>{
+
+})
+module.exports = {checkasync,createUser,LoginUser,restriTO,protected,verifyUser,updatepassword,forgotpassword,resetpassword,uploadProfile,deleteuser,logout,updateMe}

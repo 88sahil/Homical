@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Homepage from "../components/Home/Homepage";
 const Home =()=>{
+
     return (
-        <div>Mail</div>
+        <div>
+            <Homepage/>
+        </div>
     )
 }
 

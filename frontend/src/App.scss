@@ -1,5 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body{
     margin: 0;
     padding: 0;
-    background-image: linear-gradient( 72.1deg,  rgba(0,0,128,1) 1.7%, rgba(100,149,237,1) 99.1% );
+    min-height: 100vh;
+    background-color: #252525;
+    scroll-behavior: smooth;
 }

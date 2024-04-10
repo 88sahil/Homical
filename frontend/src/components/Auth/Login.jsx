@@ -7,11 +7,16 @@ import {useForm} from 'react-hook-form'
 import axios from "axios";
 import Message from "../Message";
 import { Error } from "../Message";
+import { useDispatch } from "react-redux";
+import { login } from "../../Store/AuthSlice";
+import { Link, useNavigate } from "react-router-dom";
 const Login = ()=>{
     const {handleSubmit,register} = useForm()
     const [message,setmessage] = useState('')
     const [showpopm,setshowpopm]=useState(false)
     const [showError,setshowError]= useState(false)
+    const navigate  = useNavigate()
+    const dispatch = useDispatch()
     const showMessagepop = (msg)=>{
         setshowpopm(true)
         setmessage(msg)
@@ -31,14 +36,25 @@ const Login = ()=>{
     })
     const [error,seterror] = useState('')
     const Login =(data)=>{
-        api.post('/api/user/login',data).then(res=>{
-            console.log(res.data)
-            showMessagepop('LoggedIn successfully🎉')
-        }).catch(err=>{
-            seterror(err.response.data.message)
-            ShowErrorPop()
-        })
+        try{
+            api.post('/api/user/login',data).then(res=>{
+                dispatch(login(res.data.user))
+                showMessagepop('LoggedIn successfully🎉')
+                navigate('/')
+            }).catch(err=>{
+                console.log(err)
+                seterror(err.response.data.message)
+                ShowErrorPop()
+            })
+        }catch(err){
+            throw new Error(err)
+        }
     }
+    const googleAuth =()=>{
+        window.open('http://localhost:3000/auth/google/callback','_self')
+    }
+       
+
     return(
         <div className="AuthForm">
             <div className="main">
@@ -47,12 +63,14 @@ const Login = ()=>{
                     <input type="text" placeholder="Enter Email" {...register("email")} required></input>
                     <input type="password" placeholder="Enter Password" {...register("password")} required/>
                     <button type="submit">Login</button>
+                    <p>new User? <Link to='/signup'>SingUp</Link></p>
+                    <Link to="/forgot">Forgot Password?</Link>
                 </form>
                 <div id="or">
                     <a>or</a>
                 </div>
                 <div className="google">
-                    <button><img src={google}></img>login with google</button>
+                    <button onClick={googleAuth}><img src={google}></img>login with google</button>
                 </div>
             </div>
            {showpopm && <Message message={message}/>}

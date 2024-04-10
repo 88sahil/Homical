@@ -5,16 +5,16 @@ const crypto = require('crypto')
 const userSchema = new mongoose.Schema({
     name:{
         type:String,
-        required:[true,'user must have name']
+       
     },
     username:{
         type:String,
         unique:true,
-        required:[true,'please enter username']
+        
     },
     email:{
         type:String,
-        required:[true,'user must have email'],
+       
         trim:true,
         lowercase:true,
         validate:[validator.isEmail,'please enter valid email'],
@@ -24,12 +24,12 @@ const userSchema = new mongoose.Schema({
         type:String,
         minlength:8,
         maxlength:16,
-        required:[true,'user must have password'],
+        
         select:false
     },
     conformpassword:{
         type:String,
-        required:[true,'user must have to conformpassword'],
+       
         validate:{
             validator: function(el){
                 return el===this.password
@@ -59,7 +59,12 @@ const userSchema = new mongoose.Schema({
         type:Boolean,
         default:true,
         select:false
-    }
+    },
+    likes:[{
+        type:mongoose.Schema.ObjectId,
+        ref:'Hotel'
+    }],
+    googleId:String
 })
 userSchema.pre(/^find/,async function(next){
     this.find({active:{$ne:false}})
